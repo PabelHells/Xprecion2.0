@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="index.html">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="FrontsXPRECION.css">
+<head>
+<div class="container">
+    <section id="registro">
+        <h2>Registro de Pacientes</h2>
+        <form id="registroForm" onsubmit="return validateRegistroForm()">
+            <label for="nombre">Nombre del Paciente:</label><br>
+            <input type="text" id="nombre" name="nombre" placeholder="Ingrese el nombre del paciente" required><br>
+            <label for="fechaNacimiento">Fecha de Nacimiento:</label><br>
+            <input type="date" id="fechaNacimiento" name="fechaNacimiento" required><br>
+            <label for="celular">Celular:</label><br>
+            <input type="tel" id="celular" name="celular" placeholder="Ingrese el número de celular" required><br>
+            <label for="correoElectronico">Correo Electrónico:</label><br>
+            <input type="email" id="correoElectronico" name="correoElectronico" placeholder="Ingrese el correo electrónico" required><br>
+            <label for="direccion">Dirección:</label><br>
+            <textarea id="direccion" name="direccion" placeholder="Ingrese la dirección" required></textarea><br>
+            <input type="submit" value="Registrar">
+        </form>
+    </section>
+</head>
+
+    
+
+    <section id="interoperabilidad">
+        <h2>Formulario de Interoperabilidad</h2>
+        <form id="interoperabilidadForm" onsubmit="return validateInteroperabilidadForm()">
+            <label for="especialidad">Especialidad:</label><br>
+            <select id="especialidad" name="especialidad" required>
+                <option value="">Seleccione una especialidad</option>
+                <option value="Radiografía Convencional">Radiografía Convencional</option>
+                <option value="Tomografía Computarizada (TC)">Tomografía Computarizada (TC)</option>
+                <option value="Resonancia Magnética (RM)">Resonancia Magnética (RM)</option>
+                <option value="Ecografía">Ecografía</option>
+                <option value="Radiografía Dental">Radiografía Dental</option>
+                <option value="Mamografía">Mamografía</option>
+                <option value="Fluoroscopia">Fluoroscopia</option>
+                <option value="Radiografía Ortopédica">Radiografía Ortopédica</option>
+                <option value="Radiografía de Tórax">Radiografía de Tórax</option>
+                <option value="Angiografía">Angiografía</option>
+                <option value="Radiografía de Abdomen">Radiografía de Abdomen</option>
+                <option value="Radiografía de Columna">Radiografía de Columna</option>
+                <option value="Otra">Otra</option>
+            </select><br>
+            <input type="submit" value="Enviar">
+        </form>
+    </section>
+</div>
+
+<script>
+    // Funciones de validación para cada formulario
+    function validateRegistroForm() {
+        // Validación del formulario de registro de pacientes
+        // Aquí se puede agregar validación adicional si es necesario
+        return true; // Devuelve true si el formulario es válido
+    }
+
+    function validateInteroperabilidadForm() {
+        // Validación del formulario de interoperabilidad
+        var especialidad = document.getElementById("especialidad").value;
+        if (especialidad == "") {
+            alert("Por favor seleccione una especialidad");
+            return false;
+        }
+        return true;
+    }
+
+    // Funciones de gestión de citas
+    var appointments = [];
+
+    function showAddAppointmentScreen() {
+        document.getElementById("addAppointmentScreen").style.display = "block";
+    }
+
+    function saveAppointment() {
+        var patientName = document.getElementById("patientName").value;
+        var date = document.getElementById("date").value;
+        var doctorName = document.getElementById("doctorName").value;
+        var notes = document.getElementById("notes").value;
+
+        appointments.push({ patientName: patientName, date: date, doctorName: doctorName, notes: notes });
+
+        document.getElementById("addAppointmentScreen").style.display = "none";
+        document.getElementById("appointmentList").innerHTML = "";
+        appointments.forEach(function(appointment) {
+            var li = document.createElement("li");
+            li.appendChild(document.createTextNode(appointment.patientName));
+            li.onclick = function() {
+                showAppointmentDetails(appointment);
+            };
+            document.getElementById("appointmentList").appendChild(li);
+        });
+
+        return false;
+    }
+
+    function showAppointmentDetails(appointment) {
+            document.getElementById("patientNameDetail").innerHTML = "Paciente: " + appointment.patientName;
+            document.getElementById("dateDetail").innerHTML = "Fecha: " + appointment.date;
+            document.getElementById("doctorNameDetail").innerHTML = "Médico: " + appointment.doctorName;
+            document.getElementById("notesDetail").innerHTML = "Notas: " + appointment.notes;
+            document.getElementById("appointmentDetailsScreen").style.display = "block";
+        }
+    </script>
