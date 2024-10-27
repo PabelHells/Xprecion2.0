@@ -1,0 +1,43 @@
+<?php
+include_once 'conexion.php';
+
+// Consulta para obtener todas las ciudades
+$sql = "SELECT id, nombre FROM ciudades";
+$result = $conn->query($sql);
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combo Box Dinámico</title>
+</head>
+<body>
+
+<form action="procesar.php" method="post">
+    <label for="ciudad">Selecciona una ciudad:</label>
+    <select id="ciudad" name="ciudad_id">
+        <?php
+        // Verificar si hay resultados
+        if ($result->num_rows > 0) {
+            // Generar una opción por cada fila de la tabla
+            while($row = $result->fetch_assoc()) {
+                echo "<option value='" . $row['id'] . "'>" . $row['nombre'] . "</option>";
+            }
+        } else {
+            echo "<option value=''>No hay ciudades disponibles</option>";
+        }
+        ?>
+    </select>
+    <br><br>
+    <input type="submit" value="Enviar">
+</form>
+
+</body>
+</html>
+
+<?php
+// Cerrar la conexión
+$conn->close();
+?>
