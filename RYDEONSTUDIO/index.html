@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,9 +15,8 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="index.css">
 </head>
-</head>
-<body style="font-family: 'Roboto', sans-serif; line-height: 1.6;">
 
+<body style="font-family: 'Roboto', sans-serif; line-height: 1.6;">
     <!-- Header with Navigation -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -57,7 +57,6 @@
 
     <!-- Main Content -->
     <main class="container mt-5">
-        <!-- Welcome Section -->
         <section class="card">
             <div class="card-body">
                 <h2 class="card-title">Bienvenido a XPRECION</h2>
@@ -65,15 +64,20 @@
                 <img src="logo.jpg" alt="XPRECION Logo" class="img-fluid">
             </div>
         </section>
+
+        <!-- Notificación de estado -->
+        <div id="alerta-estado" class="alert alert-success alert-dismissible fade show mt-3" role="alert" style="display: none;">
+            <strong>¡Éxito!</strong> Los resultados han sido registrados correctamente.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
     </main>
 
     <!-- Widget de Buzón de Quejas -->
-    <div id="quejas-widget">
+    <div id="quejas-widget" style="display: none;">
         <div class="widget-header">
             <h5>Buzón de Quejas</h5>
             <button class="close-widget" onclick="toggleWidget()">×</button>
         </div>
-        <!-- Complaint Form -->
         <form action="indexform.php" method="post">
             <div class="mb-3">
                 <label for="name" class="form-label">Nombre:</label>
@@ -88,8 +92,6 @@
                 <textarea class="form-control" id="complaint" name="complaint" rows="5" required placeholder="Escribe tu queja o sugerencia"></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Enviar Queja</button>
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <strong>Success!</strong> 
         </form>
     </div>
 
@@ -129,15 +131,29 @@
 
     <!-- Custom JS -->
     <script>
-        // Función para abrir/cerrar el widget de quejas
+        // Mostrar alerta de estado de resultados
+        function mostrarAlertaResultados() {
+            var alerta = document.getElementById('alerta-estado');
+            alerta.style.display = 'block';
+
+            // Ocultar alerta automáticamente después de 5 segundos
+            setTimeout(() => {
+                alerta.classList.remove('show');
+            }, 5000);
+        }
+
+        // Lógica para simular la recepción de resultados
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('resultados')) {
+                mostrarAlertaResultados();
+            }
+        });
+
+        // Abrir/cerrar el widget de quejas
         function toggleWidget() {
             var widget = document.getElementById('quejas-widget');
-            var display = window.getComputedStyle(widget).display;
-            if (display === "none") {
-                widget.style.display = "block";
-            } else {
-                widget.style.display = "none";
-            }
+            widget.style.display = widget.style.display === 'none' ? 'block' : 'none';
         }
     </script>
 </body>

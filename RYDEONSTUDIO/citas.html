@@ -1,128 +1,182 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestor de Citas de Rayos X</title>
-    
-    <!-- Importación de estilos -->
-    <link rel="stylesheet" href="citas.css">
-    <link rel="stylesheet" href="FrontsXPRECION.css">
-    <!-- Elimina uno de los siguientes si son redundantes -->
-    <!-- <link rel="stylesheet" href="XPRECION.CSS"> -->
-    
-</head>
-<body>
 
-    <div class="container">
-        <h1>Gestor de Citas de Rayos X</h1>
-        <ul id="appointmentList"></ul>
-        <a href="#" class="btn" onclick="showAddAppointmentScreen()">Agregar Cita</a>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</head>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="logo.jpg" alt="XPRECION Logo" style="width: 40px; height: auto;" class="d-inline-block align-text-top">
+                XPRECION
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item menu-active">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item about">
+                        <a class="nav-link" href="about.html">Acerca de XPRECION</a>
+                    </li>
+                    <li class="nav-item services">
+                        <a class="nav-link" href="servicios.html">Servicios</a>
+                    </li>
+                    <li class="nav-item schedule">
+                        <a class="nav-link" href="xpre.html">Horario</a>
+                    </li>
+                    <li class="nav-item appointment">
+                        <a class="nav-link" href="citas.html">Agenda una cita</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="register.html" class="btn btn-outline-primary me-2">Registrar Usuario</a>
+                    <a href="login.html" class="btn btn-outline-secondary">Iniciar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<body class="bg-light">
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Gestor de Citas de Rayos X</h1>
+
+        <ul id="appointmentList" class="list-group mb-3"></ul>
+        <button class="btn btn-primary d-block mx-auto" onclick="showAddAppointmentScreen()">
+            Agregar Cita
+        </button>
     </div>
 
-    <!-- Sección para agregar citas -->
-    <div id="addAppointmentScreen" class="container" style="display: none;">
-        <h2>Agregar Cita</h2>
-        <form id="appointmentForm">
-            <label for="patientName">Nombre del Paciente:</label><br>
-            <input type="text" id="patientName" name="patientName" required><br>
-            <label for="date">Fecha de la Cita:</label><br>
-            <input type="date" id="date" name="date" required><br>
-            <label for="doctorName">Nombre del Médico:</label><br>
-            <input type="text" id="doctorName" name="doctorName" required><br>
-            <label for="notes">Notas:</label><br>
-            <textarea id="notes" name="notes"></textarea><br>
-            <input type="submit" value="Guardar Cita">
+    <div id="addAppointmentScreen" class="container mt-5" style="display: none;">
+        <h2 class="text-center mb-4">Agregar Cita</h2>
+        <form id="appointmentForm" class="card p-4 shadow-sm">
+            <div class="mb-3">
+                <label for="patientName" class="form-label">Nombre del Paciente</label>
+                <input type="text" class="form-control" id="patientName" name="patientName" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="date" class="form-label">Fecha de la Cita</label>
+                <input type="text" class="form-control" id="date" name="date" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="doctorName" class="form-label">Nombre del Médico</label>
+                <input type="text" class="form-control" id="doctorName" name="doctorName" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="notes" class="form-label">Notas</label>
+                <textarea class="form-control" id="notes" name="notes" rows="3"></textarea>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-success me-2">Guardar Cita</button>
+                <button type="button" class="btn btn-secondary" onclick="hideAddAppointmentScreen()">Cancelar</button>
+            </div>
         </form>
     </div>
 
-    <!-- Sección para mostrar detalles de la cita -->
-    <div id="appointmentDetailsScreen" class="container" style="display: none;">
-        <h2>Detalles de la Cita</h2>
-        <p id="patientNameDetail"></p>
-        <p id="dateDetail"></p>
-        <p id="doctorNameDetail"></p>
-        <p id="notesDetail"></p>
-        <a href="#" class="btn" onclick="hideAppointmentDetails()">Volver</a>
+    <div id="appointmentDetailsScreen" class="container mt-5" style="display: none;">
+        <div class="card shadow-sm p-4">
+            <h2 class="text-center mb-4">Detalles de la Cita</h2>
+            <p id="patientNameDetail" class="fw-bold"></p>
+            <p id="dateDetail"></p>
+            <p id="doctorNameDetail"></p>
+            <p id="notesDetail"></p>
+            <div class="text-center">
+                <button class="btn btn-primary" onclick="hideAppointmentDetails()">Volver</button>
+            </div>
+        </div>
     </div>
 
     <script>
-        // Arreglo para almacenar las citas
         var appointments = [];
 
-        // Mostrar pantalla para agregar cita
         function showAddAppointmentScreen() {
             document.getElementById("addAppointmentScreen").style.display = "block";
             document.getElementById("appointmentDetailsScreen").style.display = "none";
+
+            // Autocompletar nombre del paciente si está disponible en localStorage
+            const patientName = localStorage.getItem('patientName');
+            if (patientName) {
+                document.getElementById("patientName").value = patientName;
+            }
         }
 
-        // Guardar cita
-        document.getElementById('appointmentForm').addEventListener('submit', function(event) {
-            event.preventDefault();  // Evitar el envío del formulario
+        function hideAddAppointmentScreen() {
+            document.getElementById("addAppointmentScreen").style.display = "none";
+            document.getElementById("appointmentForm").reset();
+        }
 
-            // Obtener valores del formulario
+        document.getElementById('appointmentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
             var patientName = document.getElementById("patientName").value;
             var date = document.getElementById("date").value;
             var doctorName = document.getElementById("doctorName").value;
             var notes = document.getElementById("notes").value;
 
-            // Guardar cita en el arreglo
-            appointments.push({ patientName: patientName, date: date, doctorName: doctorName, notes: notes });
+            appointments.push({ patientName, date, doctorName, notes });
 
-            // Actualizar la lista de citas
             updateAppointmentList();
-
-            // Ocultar la pantalla de agregar citas y limpiar el formulario
-            document.getElementById("addAppointmentScreen").style.display = "none";
-            document.getElementById("appointmentForm").reset();
+            hideAddAppointmentScreen();
         });
 
-        // Actualizar la lista de citas en pantalla
         function updateAppointmentList() {
             var appointmentList = document.getElementById("appointmentList");
-            appointmentList.innerHTML = "";  // Limpiar lista
+            appointmentList.innerHTML = "";
 
-            appointments.forEach(function(appointment, index) {
+            appointments.forEach((appointment, index) => {
                 var li = document.createElement("li");
-                li.appendChild(document.createTextNode(appointment.patientName));
-                li.onclick = function() {
-                    showAppointmentDetails(index);
-                };
+                li.className = "list-group-item list-group-item-action";
+                li.textContent = appointment.patientName;
+                li.onclick = () => showAppointmentDetails(index);
                 appointmentList.appendChild(li);
             });
         }
 
-        // Mostrar detalles de la cita
         function showAppointmentDetails(index) {
             var appointment = appointments[index];
-            document.getElementById("patientNameDetail").innerHTML = "Paciente: " + appointment.patientName;
-            document.getElementById("dateDetail").innerHTML = "Fecha: " + appointment.date;
-            document.getElementById("doctorNameDetail").innerHTML = "Médico: " + appointment.doctorName;
-            document.getElementById("notesDetail").innerHTML = "Notas: " + appointment.notes;
+            document.getElementById("patientNameDetail").textContent = "Paciente: " + appointment.patientName;
+            document.getElementById("dateDetail").textContent = "Fecha: " + appointment.date;
+            document.getElementById("doctorNameDetail").textContent = "Médico: " + appointment.doctorName;
+            document.getElementById("notesDetail").textContent = "Notas: " + appointment.notes;
 
             document.getElementById("appointmentDetailsScreen").style.display = "block";
-            document.getElementById("addAppointmentScreen").style.display = "none";
         }
 
-        // Ocultar los detalles de la cita
         function hideAppointmentDetails() {
             document.getElementById("appointmentDetailsScreen").style.display = "none";
         }
-    </script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        flatpickr("#date", {
-            dateFormat: "Y-m-d",  // Formato de fecha (ej: 2024-12-31)
-            altInput: true,       // Campo alternativo para visualización más amigable
-            altFormat: "F j, Y",  // Formato de visualización (ej: December 31, 2024)
-            defaultDate: new Date(),  // Establecer la fecha de hoy como predeterminada
-            locale: {
-                firstDayOfWeek: 1  // Establecer que la semana comience en lunes
-            }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            flatpickr("#date", {
+                dateFormat: "Y-m-d",
+                altInput: true,
+                altFormat: "F j, Y",
+                defaultDate: new Date(),
+                locale: { firstDayOfWeek: 1 }
+            });
+
+            // Simulación de inicio de sesión - Guarda el nombre del paciente en localStorage
+            localStorage.setItem('patientName', 'Juan Pérez');
         });
-    });
-</script>
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

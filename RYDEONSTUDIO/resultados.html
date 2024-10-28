@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados de Rayos X</title>
+    <link rel="stylesheet" href="resultados.css">
+</head>
+<body>
+    <h1 class="titulo">Resultados del Registro</h1>
+
+    <div class="resultado">
+        <p><strong>Fecha:</strong> <span id="res-fecha"></span></p>
+        <p><strong>Comentario:</strong> <span id="res-comentario"></span></p>
+        <p><strong>ID Paciente:</strong> <span id="res-id-paciente"></span></p>
+        <p><strong>ID Tipo Rayos X:</strong> <span id="res-id-tipo"></span></p>
+        <p><strong>ID Médico:</strong> <span id="res-id-medico"></span></p>
+    </div>
+
+    <a href="serviciosecretaria.html" class="boton">Registrar Nuevo</a>
+
+    <script>
+        
+        const params = new URLSearchParams(window.location.search);
+
+        document.getElementById('res-fecha').textContent = params.get('fecha') || 'No disponible';
+        document.getElementById('res-comentario').textContent = params.get('comentario') || 'No disponible';
+        document.getElementById('res-id-paciente').textContent = params.get('id_paciente') || 'No disponible';
+        document.getElementById('res-id-tipo').textContent = params.get('id_tipo_rayos_x') || 'No disponible';
+        document.getElementById('res-id-medico').textContent = params.get('id_medico') || 'No disponible';
+    </script>
+</body>
+</html>
