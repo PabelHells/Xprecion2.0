@@ -11,45 +11,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"> <!-- SweetAlert2 -->
 
 </head>
-<header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="logo.jpg" alt="XPRECION Logo" style="width: 40px; height: auto;" class="d-inline-block align-text-top">
-                XPRECION
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item menu-active">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item about">
-                        <a class="nav-link" href="about.html">Acerca de XPRECION</a>
-                    </li>
-                    <li class="nav-item services">
-                        <a class="nav-link" href="servicios.html">Registro</a>
-                    </li>
-                    <li class="nav-item schedule">
-                        <a class="nav-link" href="xpre.html">Horario</a>
-                    </li>
-                    <li class="nav-item appointment">
-                        <a class="nav-link" href="citas.html">Agenda una cita</a>
-                    </li>
-                    <li class="nav-item appointment">
-                        <a class="nav-link" href="AgregarRayosX.html">Servicios</a>
-                </ul>
-                <div class="d-flex">
-                    <a href="register.html" class="btn btn-outline-primary me-2">Registrar Usuario</a>
-                    <a href="login.html" class="btn btn-outline-secondary">Iniciar Sesión</a>
-
-                </div>
-            </div>
-        </div>
-    </nav>
-</header>
 
 <body>
 
@@ -57,7 +18,7 @@
     <section class="login-container card mt-5">
         <div class="card-body">
             <h2 class="card-title text-center">Iniciar Sesión</h2>
-            <form id="loginforms" action="login.html" method="post">
+            <form id="loginForm" action="login.php" method="post">
                 <div class="mb-3">
                     <label for="username" class="form-label">Usuario:</label>
                     <input type="text" class="form-control" id="username" name="username" placeholder="Ingresa tu usuario" required>
