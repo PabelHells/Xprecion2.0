@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
         <!-- Custom CSS -->
         <link rel="stylesheet" href="styles.css">
+
         
         <link rel="stylesheet" href="Img´s/"><link rel="stylesheet" href="index.css">
     </head>
@@ -19,7 +20,7 @@
     
         <!-- Header with Navigation -->
         <header>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
                 <div class="container">
                     <a class="navbar-brand" href="index.html">
                         <img src="logo.jpg" alt="XPRECION Logo" style="width: 40px; height: auto;" class="d-inline-block align-text-top">
@@ -36,14 +37,21 @@
                             <li class="nav-item about">
                                 <a class="nav-link" href="#acerca-de">Acerca de XPRECION</a>
                             </li>
-                            <li class="nav-item services">
-                                <a class="nav-link" href="servicios.html">Registro</a>
+                            <!-- Dropdown Menu for Servicios -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Servicios
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="AgregarRayosX.html">Rayos X</a></li>
+                                    <li><a class="dropdown-item" href="cale.php">Médico</a></li>
+                                    <li><a class="dropdown-item" href="Area.html">Área Médica</a></li>
+                                    <li><a class="dropdown-item" href="servicios.html">Añadir Paciente</a></li>
+                                </ul>
                             </li>
                             <li class="nav-item schedule">
-                                <a class="nav-link" href="GestorCitas.html">Agenda tu cita</a>
+                                <a class="nav-link" href="CestorCitas.php">Agenda tu cita</a>
                             </li>
-                            <li class="nav-item appointment">
-                                <a class="nav-link" href="AgregarRayosX.html">Servicios</a>
                         </ul>
                         <div class="d-flex">
                             <a href="register.html" class="btn btn-outline-primary me-2">Registrar Usuario</a>
@@ -53,6 +61,7 @@
                 </div>
             </nav>
         </header>
+        
     
         <!-- Main Content -->
         <ma class="container mt-5">

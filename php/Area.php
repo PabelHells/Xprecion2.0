@@ -1,4 +1,5 @@
 <?php
+$mostrar_mensaje_conexion = true;
 include_once 'conexion.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

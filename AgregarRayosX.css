@@ -81,24 +81,24 @@ main {
     transition: all 0.3s ease;
 }
 
-.btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
-    transform: translateY(-2px);
+button:hover {
+    background-color: #004d40;
 }
 
-.btn-primary:active {
-    transform: translateY(0);
-}
-.btn-lg {
-    padding: 1rem 1.5rem;
+/* Estilos adicionales para el card */
+.custom-card {
+    min-height: 400px; /* Ajusta la altura mínima */
 }
 
-footer {
-    background-color: #343a40;
-    color: #ffffff;
+.custom-input-group {
+    border-radius: 0.5rem; /* Borde redondeado */
 }
 
-footer h5 {
-    color: #007bff;
+.custom-input-group .input-group-text {
+    background-color: #f8f9fa; /* Fondo ligero */
+}
+
+/* Espaciado */
+.custom-card-body {
+    padding: 2rem; /* Relleno interno */
 }

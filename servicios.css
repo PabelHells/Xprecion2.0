@@ -2,6 +2,7 @@ body {
   background-color: #f8f9fa;
   font-family: Arial, sans-serif;
   color: #333;
+  padding-top: 70px; /* Ajusta según la altura de la barra de navegación */
 }
 
 header {
@@ -12,6 +13,11 @@ header {
 /* Estilo para la barra de navegación */
 .navbar {
   padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1030; /* Asegura que esté encima de otros elementos */
 }
 
 .navbar-brand {
@@ -38,6 +44,7 @@ header {
   border: none;
 }
 
+/* Estilos para los botones */
 .btn-outline-primary {
   color: #007bff;
   border-color: #007bff;
