@@ -87,7 +87,7 @@ button:hover {
 
 /* Estilos adicionales para el card */
 .custom-card {
-    min-height: 400px; /* Ajusta la altura mínima */
+    min-height: 600px; /* Ajusta la altura mínima */
 }
 
 .custom-input-group {

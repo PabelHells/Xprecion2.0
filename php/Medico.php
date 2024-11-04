@@ -3,7 +3,7 @@ include_once 'conexion.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre = $_POST['nombre'];
-    $area = $_POST['Area'];
+    $area = $_POST['area'];
     $apellido_pa = $_POST['APELLIDO_PA'];
     $apellido_ma = $_POST['APELLIDO_MA'];
 

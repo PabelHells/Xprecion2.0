@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="index.html">
                     <img src="logo.jpg" alt="XPRECION Logo" style="width: 40px; height: auto;" class="d-inline-block align-text-top">
@@ -26,29 +26,33 @@
                             <a class="nav-link" href="index.html">Home</a>
                         </li>
                         <li class="nav-item about">
-                            <a class="nav-link" href="about.html">Acerca de XPRECION</a>
+                            <a class="nav-link" href="#acerca-de">Acerca de XPRECION</a>
                         </li>
-                        <li class="nav-item services">
-                            <a class="nav-link" href="servicios.html">Registro</a>
+                        <!-- Dropdown Menu for Servicios -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Servicios
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="AgregarRayosX.html">Rayos X</a></li>
+                                <li><a class="dropdown-item" href="Medico.html">Médico</a></li>
+                                <li><a class="dropdown-item" href="Area.html">Área Médica</a></li>
+                                <li><a class="dropdown-item" href="servicios.html">Añadir Paciente</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item schedule">
-                            <a class="nav-link" href="xpre.html">Horario</a>
+                            <a class="nav-link" href="GestorCitas.html">Agenda tu cita</a>
                         </li>
-                        <li class="nav-item appointment">
-                            <a class="nav-link" href="citas.html">Agenda una cita</a>
-                        </li>
-                        <li class="nav-item appointment">
-                            <a class="nav-link" href="AgregarRayosX.html">Servicios</a>
                     </ul>
                     <div class="d-flex">
                         <a href="register.html" class="btn btn-outline-primary me-2">Registrar Usuario</a>
                         <a href="login.html" class="btn btn-outline-secondary">Iniciar Sesión</a>
-
                     </div>
                 </div>
             </div>
         </nav>
     </header>
+    
 
     <main class="container mt-5">
         <!-- Registration Section -->
