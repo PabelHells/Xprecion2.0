@@ -83,21 +83,3 @@ button {
 button:hover {
     background-color: #004d40;
 }
-
-/* Estilos adicionales para el card */
-.custom-card {
-    min-height: 400px; /* Ajusta la altura mínima */
-}
-
-.custom-input-group {
-    border-radius: 0.5rem; /* Borde redondeado */
-}
-
-.custom-input-group .input-group-text {
-    background-color: #f8f9fa; /* Fondo ligero */
-}
-
-/* Espaciado */
-.custom-card-body {
-    padding: 2rem; /* Relleno interno */
-}
