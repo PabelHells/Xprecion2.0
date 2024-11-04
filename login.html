@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión</title>
 
-    <!-- Enlaces a CSS -->
+    <!-- Linkeos a CSS o plantillas bootstrap -->
     <link rel="stylesheet" href="login.css"> <!-- Tus propios estilos -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"> <!-- Bootstrap para mejorar el diseño -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"> <!-- SweetAlert2 -->
@@ -49,11 +49,11 @@
 
 <body>
 
-    <!-- Sección de Login -->
+    <!--Login -->
     <section class="login-container card mt-5">
         <div class="card-body">
             <h2 class="card-title text-center">Iniciar Sesión</h2>
-            <form action ="loginforms" action="login.html" method="POST">
+            <form action ="php/loginforms.php" method="post" id="loginForm"></form>
                 <div class="mb-3">
                     <label for="username" class="form-label">Usuario:</label>
                     <input type="text" class="form-control" id="username" name="username" placeholder="Ingresa tu usuario" required>
@@ -79,7 +79,6 @@
             let password = document.getElementById('password').value.trim();
             let valid = true;
 
-            // Validación básica de los campos
             if (username === "") {
                 document.getElementById('usernameError').textContent = "El campo usuario es obligatorio.";
                 valid = false;
@@ -103,7 +102,7 @@
                     showConfirmButton: true,
                 }).then(() => {
                     // Aquí puedes enviar el formulario
-                    e.target.submit(); // Descomenta esta línea para enviar el formulario si todo es válido
+                    e.target.submit();
                 });
             } else {
                 Swal.fire({
