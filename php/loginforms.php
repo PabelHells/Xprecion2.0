@@ -1,21 +1,40 @@
 <?php
-include_once 'conexion.php';
+require_once 'conexion.php'; // Asegúrate de incluir la conexión a la base de datos
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nombre = $_POST['nombre'];
+session_start();
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Obtener los datos del formulario
+    $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $stat = $conexion->prepare("INSERT INTO medico(NOMBRE, passwords ) VALUES(?,?,?,?)");
-    $stat->bind_param("ssss", $nombre, $area, $apellido_pa, $apellido_ma);
-     
-    if ($stat->execute()) {
-        echo "Datos guardados";
+    // Validación básica
+    if (empty($username) || empty($password)) {
+        die("Todos los campos son obligatorios.");
+    }
+
+    // Buscar al usuario en la base de datos
+    $sql = "SELECT * FROM usuarios WHERE username = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    // Si el usuario existe
+    if ($result->num_rows > 0) {
+        $user = $result->fetch_assoc();
+        
+        // Verificar la contraseña
+        if (password_verify($password, $user['password'])) {
+            // Inicio de sesión exitoso
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['username'] = $user['username'];
+            header('Location: dashboard.php'); // Redirige a una página protegida
+        } else {
+            echo "Contraseña incorrecta.";
+        }
     } else {
-        // Usuario no encontrado
-        echo '<script>
-                alert("Usuario no encontrado.");
-                window.location.href="index.html"; // Cambia al archivo correcto si es necesario
-              </script>';
+        echo "Usuario no encontrado.";
     }
 }
 ?>

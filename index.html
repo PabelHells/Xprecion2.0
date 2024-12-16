@@ -1,213 +1,181 @@
 <!DOCTYPE html>
-<html<!DOCTYPE html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>XPRECION - Centro Médico</title>
-        <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-        <!-- Font Awesome Icons -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="styles.css">
-
-        
-        <link rel="stylesheet" href="Img´s/"><link rel="stylesheet" href="index.css">
-    </head>
-    <body style="font-family: 'Roboto', sans-serif; line-height: 1.6;">
-    
-        <!-- Header with Navigation -->
-        <header>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-                <div class="container">
-                    <a class="navbar-brand" href="index.html">
-                        <img src="logo.jpg" alt="XPRECION Logo" style="width: 40px; height: auto;" class="d-inline-block align-text-top">
-                        XPRECION
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item menu-active">
-                                <a class="nav-link" href="index.html">Home</a>
-                            </li>
-                            <li class="nav-item about">
-                                <a class="nav-link" href="#acerca-de">Acerca de XPRECION</a>
-                            </li>
-                            <!-- Dropdown Menu for Servicios -->
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Servicios
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="AgregarRayosX.html">Rayos X</a></li>
-                                    <li><a class="dropdown-item" href="Medico.html">Médico</a></li>
-                                    <li><a class="dropdown-item" href="Area.html">Área Médica</a></li>
-                                    <li><a class="dropdown-item" href="servicios.html">Añadir Paciente</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item schedule">
-                                <a class="nav-link" href="GestorCitas.html">Agenda tu cita</a>
-                            </li>
-                        </ul>
-                        <div class="d-flex">
-                            <a href="register.html" class="btn btn-outline-primary me-2">Registrar Usuario</a>
-                            <a href="login.html" class="btn btn-outline-secondary">Iniciar Sesión</a>
-                        </div>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XPRECION - Centro Médico</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        .widget-card {
+            transition: transform 0.3s ease-in-out;
+        }
+        .widget-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-light shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="/">
+                    <img src="logo.jpg." alt="XPRECION Logo" class="me-2" style="width: 40px; height: 40px;">
+                    <span class="fw-bold">XPRECION</span>
+                </a>  
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">Acerca de XPRECION</a></li>
+                        <li class="nav-item"><a class="nav-link" href="GestorCitas.html">Agenda tu cita</a></li>
+                    </ul>
+                    <div>
+                        <a href="register.html" class="btn btn-outline-primary me-2">Registrar Usuario</a>
+                        <a href="login.html" class="btn btn-outline-primary">Iniciar Sesión</a>
                     </div>
                 </div>
-            </nav>
-        </header>
-        
-    
-        <!-- Main Content -->
-        <ma class="container mt-5">
-            <!-- Welcome Section -->
-            <section class="card mb-5">
-                <div class="card-body text-center">
-                    <h2 class="card-title">Bienvenido a XPRECION</h2>
-                    <p class="card-text">Centro Médico especializado en brindar servicios de salud de alta calidad.</p>
-                    <img src="logo.jpg" alt="XPRECION Logo" class="img-fluid">
-                </div>
-            </section>
-    
-            <!-- About Section -->
-            <section id="acerca-de" class="about-section text-center mb-5">
-                <h2>Acerca de XPRECION</h2>
-                <p>
-                    En XPRECION, nos dedicamos a ofrecer soluciones tecnológicas innovadoras y personalizadas 
-                    que ayudan a las empresas a optimizar sus procesos, mejorar su productividad y adaptarse a 
-                    los constantes cambios del mercado. Nuestro equipo de expertos trabaja en proyectos que van 
-                    desde el desarrollo de software hasta la consultoría estratégica en tecnología.
-                </p>
-                <p>
-                    Nos enorgullece colaborar con diversas industrias para crear soluciones que no solo sean 
-                    efectivas, sino que también generen un impacto positivo en el crecimiento y la transformación 
-                    digital de nuestros clientes. Estamos comprometidos con la calidad, la innovación y el servicio 
-                    al cliente.
-                </p>
-                <a href="about.html" class="btn btn-primary mt-3">Contáctanos</a>
-            </section>
-        <head>
-            <body>                    
-                <main class="container mt-5">             
-                    <section id="dynamic-widgets" class="row mt-4"></section>
-                </main>
-            
-                <script>
-                    // Widget data and load function from earlier
-                    const widgetData = [
-    {
-        image: "instalaciones.jpg",
-        link: "https://articulo1.com ",
-        text: "Ven y date una vuelta a nuestras instalaciones."
-    },
-    {
-        image: "antesdetips.jpg",
-        link: "AgregarRayosX.html",
-        text: "Antes de hacerte tu examen de imagenes, lee los siguentes consejos, asi te cuidas tu y nos cuidas a nosotros."
-    },
-    {
-        image: "preguntas.jpg",  
-        link:  "https://articulo3.com",
-        text: "Preguntas algo frecuentes hechas por nuestros usuarios."
-    }
-];
-            
-function loadWidgets() {
-    const widgetContainer = document.getElementById('dynamic-widgets');
+            </div>
+        </nav>
+    </header>
 
-    widgetData.forEach(data => {
-        const widgetHTML = `
-            <div class="col-md-4">
-                <div class="card widget-card">
-                    <a href="${data.link}" target="_blank">
-                        <img src="${data.image}" class="card-img-top" alt="Imagen del artículo">
-                    </a>
+    <main class="container my-5">
+        <section class="text-center mb-5">
+            <h1 class="display-4 fw-bold mb-3">Bienvenido a XPRECION</h1>
+            <p class="lead text-muted mb-4">Centro Médico especializado en brindar servicios de salud de alta calidad.</p>
+            <img src="logo.jpg" alt="XPRECION Centro Médico" class="img-fluid rounded shadow-sm">
+        </section>
+
+        <section class="mb-5">
+            <h2 class="text-center mb-4">Acerca de XPRECION</h2>
+            <p class="mb-4">
+                En XPRECION, nos dedicamos a ofrecer soluciones tecnológicas innovadoras y personalizadas 
+                que ayudan a las empresas a optimizar sus procesos, mejorar su productividad y adaptarse a 
+                los constantes cambios del mercado. Nuestro equipo de expertos trabaja en proyectos que van 
+                desde el desarrollo de software hasta la consultoría estratégica en tecnología.
+            </p>
+            <p class="mb-4">
+                Nos enorgullece colaborar con diversas industrias para crear soluciones que no solo sean 
+                efectivas, sino que también generen un impacto positivo en el crecimiento y la transformación 
+                digital de nuestros clientes. Estamos comprometidos con la calidad, la innovación y el servicio 
+                al cliente.
+            </p>
+            <div class="text-center">
+                <a href="/contact" class="btn btn-primary">Contáctanos</a>
+            </div>
+        </section>
+
+        <section class="row mb-5">
+            <div class="col-md-4 mb-4">
+                <div class="card widget-card h-100">
+                    <img src="/placeholder.svg?height=200&width=300" class="card-img-top" alt="Instalaciones">
                     <div class="card-body">
-                        <p class="card-text">${data.text}</p>
+                        <p class="card-text">Ven y date una vuelta a nuestras instalaciones.</p>
+                        <a href="https://articulo1.com" class="btn btn-link">Leer más</a>
                     </div>
                 </div>
             </div>
-        `;
-
-        widgetContainer.insertAdjacentHTML('beforeend', widgetHTML);
-    });
-}
-
-document.addEventListener("DOMContentLoaded", loadWidgets);
-                </script>
-            </body>
-        </head>
-        <!-- Widget de Buzón de Quejas -->
-        <div id="quejas-widget" style="display: none;">
-            <div class="widget-header">
-                <h5>Buzón de Quejas</h5>
-                <button class="close-widget" onclick="toggleWidget()">×</button>
+            <div class="col-md-4 mb-4">
+                <div class="card widget-card h-100">
+                    <img src="/placeholder.svg?height=200&width=300" class="card-img-top" alt="Consejos para exámenes">
+                    <div class="card-body">
+                        <p class="card-text">Antes de hacerte tu examen de imágenes, lee los siguientes consejos, así te cuidas tú y nos cuidas a nosotros.</p>
+                        <a href="https://articulo2.com" class="btn btn-link">Leer más</a>
+                    </div>
+                </div>
             </div>
-            <!-- Complaint Form -->
-            <form action="indexform.php" method="post">
+            <div class="col-md-4 mb-4">
+                <div class="card widget-card h-100">
+                    <img src="/placeholder.svg?height=200&width=300" class="card-img-top" alt="Preguntas frecuentes">
+                    <div class="card-body">
+                        <p class="card-text">Preguntas algo frecuentes hechas por nuestros usuarios.</p>
+                        <a href="https://articulo3.com" class="btn btn-link">Leer más</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5 class="fw-bold mb-3">XPRECION - Centro Médico</h5>
+                    <p class="text-muted">Contáctanos para más información sobre nuestros servicios o para programar una consulta.</p>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="fw-bold mb-3">Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted text-decoration-none">Acerca de</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Servicios</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Citas</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="fw-bold mb-3">Síguenos</h5>
+                    <div>
+                        <a href="#" class="text-muted me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-muted me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-muted"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="quejas-widget" class="card position-fixed bottom-0 end-0 m-3" style="width: 300px; display: none; z-index: 1000;">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Buzón de Quejas</h5>
+            <button type="button" class="btn-close" onclick="toggleWidget()"></button>
+        </div>
+        <div class="card-body">
+            <form action="php/guardarIndex.php" method="post"></form>
                 <div class="mb-3">
-                    <label for="name" class="form-label">Nombre:</label>
-                    <input type="text" class="form-control" id="name" name="name" required placeholder="Tu nombre">
+                    <input type="text" class="form-control" placeholder="Nombre">
                 </div>
                 <div class="mb-3">
-                    <label for="email" class="form-label">Correo Electrónico:</label>
-                    <input type="email" class="form-control" id="email" name="email" required placeholder="ejemplo@correo.com">
+                    <input type="email" class="form-control" placeholder="Correo Electrónico">
                 </div>
                 <div class="mb-3">
-                    <label for="complaint" class="form-label">Queja o Sugerencia:</label>
-                    <textarea class="form-control" id="complaint" name="complaint" rows="5" required placeholder="Escribe tu queja o sugerencia"></textarea>
+                    <textarea class="form-control" rows="3" placeholder="Escribe tu queja o sugerencia"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Enviar Queja</button>
             </form>
         </div>
-    
-        <!-- Botón flotante para abrir el widget -->
-        <button id="open-widget-btn" onclick="toggleWidget()" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">
-            <i class="fa-solid fa-comments"></i>
-        </button>
-    
-        <!-- Footer -->
-        <footer class="bg-light text-center text-lg-start mt-5">
-            <div class="container p-4">
-                <div class="row">
-                    <div class="col-lg-6 col-md-12 mb-4">
-                        <h5 class="text-uppercase">XPRECION - Centro Médico</h5>
-                        <p>Contáctanos para más información sobre nuestros servicios o para programar una consulta.</p>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <h5 class="text-uppercase">Enlaces Rápidos</h5>
-                        <ul class="list-unstyled mb-0">
-       html                 <li><a href="#acerca-de" class="text-dark">Acerca de</a></li>
-                            <li><a href="servicios.html" class="text-dark">Servicios</a></li>
-                            <li><a href="GestorCitas.html" class="text-dark">Citas</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <h5 class="text-uppercase">Síguenos</h5>
-                        <a href="#" class="me-4 text-reset"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="me-4 text-reset"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="me-4 text-reset"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
+    </div>
+
+    <button id="open-widget-btn" onclick="toggleWidget()" class="btn btn-primary rounded-circle position-fixed bottom-0 end-0 m-3" style="width: 50px; height: 50px; z-index: 1000;">
+        <i class="fas fa-comments"></i>
+    </button>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="appointmentToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Recordatorio de Cita</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
-        </footer>
-    
-        <!-- Bootstrap JS and dependencies -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    
-        <!-- Custom JS -->
-        <script>
-            // Función para abrir/cerrar el widget de quejas
-            function toggleWidget() {
-                var widget = document.getElementById('quejas-widget');
-                var display = window.getComputedStyle(widget).display;
-                widget.style.display = (display === "none") ? "block" : "none";
+            <div class="toast-body">
+                Tienes una cita activa. ¡No olvides asistir!
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function toggleWidget() {
+            const widget = document.getElementById('quejas-widget');
+            widget.style.display = widget.style.display === 'none' ? 'block' : 'none';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const hasActiveAppointment = true; // Simula la verificación de cita activa
+            if (hasActiveAppointment) {
+                const toast = new bootstrap.Toast(document.getElementById('appointmentToast'));
+                toast.show();
             }
-        </script>
-    </body>
-    </html>
+        });
+    </script>
+</body>
+</html>

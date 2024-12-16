@@ -9,20 +9,28 @@ if ($conn->connect_error) {
     die("Error de conexión: " . $conn->connect_error);
 }
 
-// Obtener datos del formulario
-$appointmentDate = $_POST['appointmentDate'];
-$specialty = $_POST['specialty'];
-$patientId = $_POST['patientId'];
+// Obtener datos del formulario y validar
+$appointmentDate = isset($_POST['appointmentDate']) ? $_POST['appointmentDate'] : null;
+$specialty = isset($_POST['specialty']) ? $_POST['specialty'] : null;
+$patientId = isset($_POST['patientId']) ? $_POST['patientId'] : null;
 
-// Insertar datos de la cita en la tabla
-$sql = "INSERT INTO citas (fecha_cita, especialidad, id_paciente) VALUES ('$appointmentDate', '$specialty', '$patientId')";
+if ($appointmentDate && $specialty && $patientId) {
+    // Preparar la consulta
+    $stmt = $conn->prepare("INSERT INTO citas (fecha_cita, especialidad, id_paciente) VALUES (?, ?, ?)");
+    $stmt->bind_param("ssi", $appointmentDate, $specialty, $patientId);
 
-if ($conn->query($sql) === TRUE) {
-    echo "Cita registrada exitosamente.";
+    // Ejecutar y verificar resultado
+    if ($stmt->execute()) {
+        echo "Cita registrada exitosamente.";
+    } else {
+        echo "Error al registrar la cita: " . $stmt->error;
+    }
+
+    $stmt->close();
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Por favor complete todos los campos.";
 }
 
-// Cerrar la conexión
+// Cerrar conexión
 $conn->close();
 ?>
